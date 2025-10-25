@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eyad Shahat | Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Eyad<span>Shahat</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="set-name" class="btn-outline">Set Name</button>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero / About Section -->
+  <section id="about" class="hero reveal">
+    <div class="hero-container">
+      <div class="hero-text">
+        <p class="intro">Hey, <span id="greet-name">there</span> 👋</p>
+        <h1>I create <span class="accent">web solutions</span> and modern digital experiences</h1>
+        <p class="desc">
+          I’m a motivated computer science student with a strong interest in web development and AI integration.
+          I enjoy turning ideas into interactive, visually appealing websites while continuously learning modern tools.
+        </p>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+
+        <!-- Small inline name setter -->
+        <div class="name-preferences">
+          <input id="name-input" type="text" placeholder="Enter your name (optional)" />
+          <button id="save-name" class="btn-outline small">Save</button>
+          <button id="clear-name" class="linklike">Clear</button>
+          <span id="name-feedback" class="muted"></span>
+        </div>
+
+        <!-- Dynamic fact widget (API + loading + error + retry) -->
+        <div class="fact-widget">
+          <div class="fact-header">
+            <h3 class="fact-title">Today’s Fun Fact</h3>
+            <button id="fact-btn" class="btn-outline small">Load Fact</button>
+          </div>
+          <div id="fact-state" class="fact-state muted">Click "Load Fact" to fetch a fact.</div>
+        </div>
+      </div>
+
+     
+    </div>
+  </section>
+
+  <!-- Projects Section (filter + live search + collapsible details) -->
+  <section id="projects" class="projects reveal">
+    <h2>My <span class="accent">Projects</span></h2>
+
+    <div class="projects-controls">
+      <div class="filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="web">Web</button>
+        <button class="chip" data-filter="app">App</button>
+      </div>
+      <input id="project-search" class="search" type="search" placeholder="Search projects..." aria-label="Search projects"/>
+    </div>
+
+    <div id="projects-container" class="projects-container">
+      <!-- Project 1 -->
+      <article class="project-card" data-category="web">
+        <button class="project-toggle" aria-expanded="false">
+          <h3 class="project-title">Movie Ticket Booking System</h3>
+          <span class="chevron">▾</span>
+        </button>
+        <div class="project-body">
+          <p>
+            A web-based application that allows users to browse movies, select showtimes,
+            and book tickets online. It features a responsive layout and an easy-to-use interface.
+          </p>
+          <img src="assets/images/movie-project.png" alt="Movie Ticket Booking Project"/>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card" data-category="app">
+        <button class="project-toggle" aria-expanded="false">
+          <h3 class="project-title">Parking Website</h3>
+          <span class="chevron">▾</span>
+        </button>
+        <div class="project-body">
+          <p>
+            A smart parking management website that helps users find available parking spaces,
+            book slots, and manage reservations. Designed with a clean UI and responsive design.
+          </p>
+          <img src="assets/images/parking-project.png" alt="Parking Website Project"/>
+        </div>
+      </article>
+    </div>
+
+    <div id="empty-state" class="empty-state hidden">No projects found.</div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact reveal">
+    <h2>Contact Me</h2>
+    <form id="contact-form" novalidate>
+      <div class="field">
+        <input id="name" type="text" placeholder="Your Name" required/>
+        <small class="error" id="name-error"></small>
+      </div>
+
+      <div class="field">
+        <input id="email" type="email" placeholder="Your Email" required/>
+        <small class="error" id="email-error"></small>
+      </div>
+
+      <div class="field">
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <small class="error" id="message-error"></small>
+      </div>
+
+      <button type="submit" class="btn-primary">Send</button>
+      <div id="form-status" class="muted"></div>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Eyad Shahat. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

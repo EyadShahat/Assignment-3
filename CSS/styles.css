@@ -1,0 +1,169 @@
+/* =========================
+   Base Styles
+========================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #fdfdfd;
+  --text: #333;
+  --muted: #6b7280;
+  --card: #fff;
+  --primary: #007BFF;
+  --primary-700: #0056b3;
+  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --hero-bg: #f9fbff;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  transition: background .3s, color .3s;
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 40px; background: var(--card); box-shadow: 0 2px 10px rgba(0,0,0,.05);
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: var(--primary); }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: var(--text); font-weight: 500; }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.btn-outline {
+  border: 2px solid var(--primary); background: transparent; padding: 8px 16px;
+  border-radius: 6px; cursor: pointer; color: var(--primary); font-weight: bold; transition: .2s;
+}
+.btn-outline:hover { background: var(--primary); color: white; }
+.btn-outline.small { padding: 6px 10px; font-size: .9rem; }
+
+.theme-btn {
+  font-size: 1.2rem; background: none; border: none; cursor: pointer; color: var(--primary);
+  transition: transform .2s;
+}
+.theme-btn:hover { transform: scale(1.2); }
+
+/* =========================
+   Hero
+========================= */
+.hero { padding: 80px 20px; background: var(--hero-bg); }
+.hero-container {
+  max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: space-between; gap: 40px;
+}
+.hero-text { flex: 1 1 500px; }
+.intro { color: #777; margin-bottom: 10px; }
+.muted { color: var(--muted); font-size: .9rem; }
+.hero-text h1 { font-size: 2.4rem; margin-bottom: 16px; }
+.accent { color: var(--primary); }
+.desc { margin-bottom: 20px; color: #555; }
+.btn-primary {
+  display: inline-block; background: var(--primary); color: white; padding: 12px 24px;
+  border-radius: 8px; text-decoration: none; font-weight: bold; transition: background .3s;
+}
+.btn-primary:hover { background: var(--primary-700); }
+.hero-img img {
+  max-width: 350px; width: 100%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,.1);
+}
+
+/* Name preferences row */
+.name-preferences { display: flex; gap: 8px; align-items: center; margin-top: 14px; flex-wrap: wrap; }
+.name-preferences input { padding: 8px 10px; border-radius: 8px; border: 1px solid #d1d5db; min-width: 220px; }
+.linklike { background: transparent; border: none; color: var(--primary); cursor: pointer; text-decoration: underline; }
+
+/* Fact widget */
+.fact-widget { margin-top: 22px; background: var(--card); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); }
+.fact-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.fact-title { font-size: 1.05rem; }
+.fact-state { min-height: 24px; }
+
+/* =========================
+   Projects
+========================= */
+.projects { padding: 80px 20px; text-align: center; }
+.projects h2 { font-size: 2rem; margin-bottom: 20px; }
+.projects-controls {
+  max-width: 1100px; margin: 10px auto 30px; display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;
+}
+.filters { display: flex; gap: 8px; }
+.chip {
+  padding: 8px 12px; border: 1px solid #d1d5db; background: #fff; border-radius: 999px; cursor: pointer;
+}
+.chip.active, .chip:hover { border-color: var(--primary); color: var(--primary); }
+.search { padding: 10px 12px; border-radius: 10px; border: 1px solid #d1d5db; min-width: 240px; }
+
+.projects-container {
+  display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;
+}
+.project-card {
+  background: var(--card); padding: 18px; border-radius: 12px; box-shadow: var(--shadow);
+  flex: 1 1 380px; max-width: 520px; transition: transform .3s;
+}
+.project-card:hover { transform: translateY(-8px); }
+
+.project-toggle {
+  width: 100%; background: transparent; border: none; display: flex; align-items: center;
+  justify-content: space-between; cursor: pointer; text-align: left; padding: 6px 4px;
+}
+.project-title { color: var(--primary); font-size: 1.15rem; }
+.chevron { transition: transform .2s; }
+.project-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+.project-body {
+  grid-template-rows: 0fr; display: grid; transition: grid-template-rows .25s ease;
+}
+.project-body > * { overflow: hidden; }
+.project-toggle[aria-expanded="true"] + .project-body { grid-template-rows: 1fr; margin-top: 8px; }
+
+.project-card img {
+  width: 80%; max-width: 250px; height: auto; object-fit: contain;
+  border-radius: 8px; margin: 12px auto 0; display: block;
+}
+
+.empty-state { margin-top: 10px; }
+.hidden { display: none; }
+
+/* =========================
+   Contact + Form feedback
+========================= */
+.contact { padding: 80px 20px; text-align: center; }
+#contact-form { max-width: 520px; margin: auto; display: flex; flex-direction: column; gap: 14px; }
+.field input, .field textarea {
+  width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 1rem;
+}
+.error { color: #b91c1c; min-height: 18px; display: block; text-align: left; margin-top: 4px; }
+#form-status { min-height: 22px; margin-top: 4px; }
+
+/* =========================
+   Footer
+========================= */
+footer { text-align: center; padding: 20px; background: #f1f1f1; color: #555; }
+
+/* =========================
+   Animations (reveal on scroll)
+========================= */
+.reveal { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* =========================
+   Dark Mode
+========================= */
+body.dark {
+  --bg: #1c1c1c;
+  --text: #f1f1f1;
+  --muted: #a3a3a3;
+  --card: #2a2a2a;
+  --hero-bg: #1c1c1c;
+}
+body.dark footer { background: #222; color: #aaa; }
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 900px) {
+  .hero-container { flex-direction: column; text-align: center; }
+  .hero-text h1 { font-size: 2rem; }
+}
